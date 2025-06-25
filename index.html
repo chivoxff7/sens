@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChivoSens - Sensibilidades Calibradas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>Chivo<span class="highlight">Sens</span>.</h1>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="title-section">
+                <h2 class="main-title">SENSIBILIDADES<br>CHIVOSENS_PRO</h2>
+            </div>
+
+            <div class="selector-section">
+                <div class="selector-group">
+                    <label for="brand-select">Selecciona la marca</label>
+                    <select id="brand-select" class="custom-select">
+                        <option value="">Selecciona una marca</option>
+                    </select>
+                </div>
+
+                <div class="selector-group">
+                    <label for="model-select">Selecciona el modelo</label>
+                    <select id="model-select" class="custom-select" disabled>
+                        <option value="">Primero selecciona una marca</option>
+                    </select>
+                </div>
+
+                <button id="generate-btn" class="generate-btn" disabled>
+                    Generar sensibilidad
+                </button>
+            </div>
+
+            <div id="config-display" class="config-display" style="display: none;">
+                <div class="config-header">
+                    <h3 id="device-name"></h3>
+                    <span id="config-number" class="config-badge"></span>
+                </div>
+                <div class="config-grid">
+                    <div class="config-item">
+                        <span class="config-label">General:</span>
+                        <span id="general-value" class="config-value"></span>
+                    </div>
+                    <div class="config-item">
+                        <span class="config-label">Mira de Punto Rojo:</span>
+                        <span id="red-dot-value" class="config-value"></span>
+                    </div>
+                    <div class="config-item">
+                        <span class="config-label">Mira X2:</span>
+                        <span id="scope-2x-value" class="config-value"></span>
+                    </div>
+                    <div class="config-item">
+                        <span class="config-label">Mira X4:</span>
+                        <span id="scope-4x-value" class="config-value"></span>
+                    </div>
+                    <div class="config-item">
+                        <span class="config-label">AWM:</span>
+                        <span id="awm-value" class="config-value"></span>
+                    </div>
+                    <div class="config-item">
+                        <span class="config-label">Tamaño del Botón:</span>
+                        <span id="button-size-value" class="config-value"></span>
+                    </div>
+                    <div class="config-item">
+                        <span class="config-label">DPI:</span>
+                        <span id="dpi-value" class="config-value"></span>
+                    </div>
+                    <div class="config-item">
+                        <span class="config-label">Tasa de Refresco:</span>
+                        <span id="refresh-rate-value" class="config-value"></span>
+                    </div>
+                </div>
+                
+                <div class="config-actions">
+                    <button id="regenerate-btn" class="regenerate-btn">
+                        Generar otra configuración
+                    </button>
+                    <button id="show-all-btn" class="show-all-btn">
+                        Ver todas las configuraciones
+                    </button>
+                </div>
+            </div>
+
+            <div id="all-configs" class="all-configs" style="display: none;">
+                <h3>Todas las configuraciones disponibles</h3>
+                <div id="configs-table" class="configs-table"></div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 ChivoSens - Sensibilidades optimizadas para todos los dispositivos</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+// Verificación de IP
+async function checkIP() {
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        const userIP = data.ip;
+        
+        if (userIP !== '67.166.186.16') {
+            document.body.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial, sans-serif; font-size: 24px; color: #ffffff; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);">Página no disponible</div>';
+        }
+    } catch (error) {
+        document.body.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial, sans-serif; font-size: 24px; color: #ffffff; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);">Página no disponible</div>';
+    }
+}
+
+// Ejecutar verificación al cargar la página
+checkIP();
+</script>
+</body>
+</html>
