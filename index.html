@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChivoxSens - Sensibilidades Premium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Access Denied Modal (hidden by default) -->
+    <div id="accessDeniedModal" class="access-denied-modal">
+        <div class="access-denied-content">
+            <div class="access-denied-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>ACCESO DENEGADO</h1>
+            <p>Acceso a la página solo usuarios premium</p>
+            <div class="access-denied-info">
+                <p>Tu IP no está autorizada para acceder a este contenido premium. Contacta al administrador para obtener acceso.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <div class="social-icons">
+                            <div class="whatsapp-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="youtube-icon">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </div>
+                        <h1 class="logo">Chivox<span class="logo-accent">Sens</span>.</h1>
+                    </div>
+                    <div class="premium-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Premium Access</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+                <div class="content-wrapper">
+                    <!-- Title Section -->
+                    <div class="title-section">
+                        <h2 class="main-title">SENSIBILIDADES</h2>
+                        <h3 class="sub-title">WOODS_FF</h3>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span id="brandCount">22 Marcas</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>7000+ Dispositivos</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-crosshairs"></i>
+                                <span>Precisión Hacker</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selection Form -->
+                    <div class="selection-card">
+                        <div class="form-group">
+                            <label for="brandSelect">Selecciona la marca</label>
+                            <select id="brandSelect" class="custom-select">
+                                <option value="">Seleccionar marca...</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modelSelect">Selecciona el modelo</label>
+                            <select id="modelSelect" class="custom-select" disabled>
+                                <option value="">Seleccionar modelo...</option>
+                            </select>
+                        </div>
+
+                        <button id="generateBtn" class="generate-btn" disabled>
+                            <i class="fas fa-cog"></i>
+                            <span>Generar sensibilidad</span>
+                        </button>
+                    </div>
+
+                    <!-- Loading Animation -->
+                    <div id="loadingAnimation" class="loading-animation" style="display: none;">
+                        <div class="loading-content">
+                            <div class="loading-spinner"></div>
+                            <p>Generando sensibilidad hacker...</p>
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div id="resultsCard" class="results-card" style="display: none;">
+                        <div class="results-header">
+                            <h3 id="deviceName" class="device-name"></h3>
+                            <div class="badges">
+                                <span id="hackBadge" class="hack-badge"></span>
+                                <span id="refreshBadge" class="refresh-badge"></span>
+                            </div>
+                        </div>
+
+                        <div class="sensitivity-grid">
+                            <div class="sensitivity-column">
+                                <div class="sensitivity-item">
+                                    <span class="sensitivity-label">General:</span>
+                                    <span id="generalValue" class="sensitivity-value"></span>
+                                </div>
+                                <div class="sensitivity-item">
+                                    <span class="sensitivity-label">Mira de Punto Rojo:</span>
+                                    <span id="redDotValue" class="sensitivity-value"></span>
+                                </div>
+                                <div class="sensitivity-item">
+                                    <span class="sensitivity-label">Mira X2:</span>
+                                    <span id="scope2xValue" class="sensitivity-value"></span>
+                                </div>
+                            </div>
+                            <div class="sensitivity-column">
+                                <div class="sensitivity-item">
+                                    <span class="sensitivity-label">Mira X4:</span>
+                                    <span id="scope4xValue" class="sensitivity-value"></span>
+                                </div>
+                                <div class="sensitivity-item">
+                                    <span class="sensitivity-label">Tamaño del Botón:</span>
+                                    <span id="buttonSizeValue" class="sensitivity-value"></span>
+                                </div>
+                                <div class="sensitivity-item">
+                                    <span class="sensitivity-label">DPI:</span>
+                                    <span id="dpiValue" class="sensitivity-value"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hacker-info">
+                            <p><strong>Configuración Hacker:</strong> Estos valores han sido optimizados específicamente para la tasa de refresco de <span id="refreshRateInfo"></span>Hz de tu dispositivo, garantizando máxima precisión y rendimiento competitivo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>© 2024 ChivoxSens - Configuraciones de sensibilidad premium para Free Fire</p>
+                    <p>Acceso restringido solo para usuarios autorizados</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
